@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嘉豐國小｜從手繪到AI印章的蛻變之旅</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jfBlue: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            600: '#005bac', /* 嘉豐藍 */
+                            700: '#00488a',
+                            800: '#003669',
+                        },
+                        jfCream: '#fdf6e3', /* 簡報米黃色 */
+                        jfOrange: '#e67e22', /* 強調橘 */
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'Microsoft JhengHei', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 隱藏捲動條但保有功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 亮點強調動畫 */
+        @keyframes subtle-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(230, 126, 34, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(230, 126, 34, 0.8); }
+        }
+        .focus-glow {
+            animation: subtle-glow 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-jfCream/30 text-slate-800 font-sans selection:bg-jfOrange selection:text-white">
+
+    <!-- 頂部導覽列 -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <img src="https://i.postimg.cc/RVKVPPs8/IMG-9908.jpg" alt="嘉豐國小 Logo" class="h-12 w-12 rounded-full object-cover border-2 border-jfBlue-600 shadow-sm">
+                    <div>
+                        <span class="text-xl font-black text-jfBlue-600 tracking-wider block">嘉豐國小</span>
+                        <span class="text-xs text-slate-500 font-semibold block">Jia-Feng Elementary School</span>
+                    </div>
+                </div>
+                <!-- 桌面版選單 -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 font-medium">
+                    <button onclick="window.open('./ai.png', '_blank')" class="text-jfOrange hover:text-jfOrange/80 transition-all font-extrabold flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 shadow-sm">
+                        <span class="inline-block w-2.5 h-2.5 rounded-full bg-jfOrange animate-pulse"></span> 
+                        <i class="fa-solid fa-map"></i> 點擊開啟高清大圖
+                    </button>
+                    <a href="#about" class="text-slate-600 hover:text-jfBlue-600 transition-colors text-sm lg:text-base">課程理念</a>
+                    <a href="#style-guide" class="text-slate-600 hover:text-jfBlue-600 transition-colors text-sm lg:text-base">風格指南</a>
+                    <a href="#gallery" class="text-slate-600 hover:text-jfBlue-600 transition-colors text-sm lg:text-base">成果畫廊</a>
+                    <a href="#layered-stamps" class="text-slate-600 hover:text-jfBlue-600 transition-colors text-sm lg:text-base font-bold text-red-600">套色印章</a>
+                    <a href="#text-stamps" class="text-slate-600 hover:text-jfBlue-600 transition-colors text-sm lg:text-base font-bold">文字姓名印章</a>
+                    <a href="#other-groups" class="px-4 py-2 bg-jfBlue-600 hover:bg-jfBlue-700 text-white rounded-full text-sm font-semibold transition-all shadow-md shadow-jfBlue-600/20">團體作品</a>
+                </div>
+                <!-- 行動版選單按鈕 -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-jfBlue-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 行動版下拉選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 py-4 space-y-3 shadow-lg">
+            <button onclick="window.open('./ai.png', '_blank')" class="w-full text-left text-jfOrange font-extrabold py-2 px-3 rounded-lg bg-amber-50 flex items-center gap-2"><i class="fa-solid fa-map"></i> 在新分頁開啟高清大圖</button>
+            <a href="#about" class="block text-slate-600 hover:text-jfBlue-600 font-medium py-1">課程理念</a>
+            <a href="#style-guide" class="block text-slate-600 hover:text-jfBlue-600 font-medium py-1">風格指南</a>
+            <a href="#gallery" class="block text-slate-600 hover:text-jfBlue-600 font-medium py-1">成果畫廊</a>
+            <a href="#layered-stamps" class="block text-red-600 hover:text-red-700 font-bold py-1">套色印章展示</a>
+            <a href="#text-stamps" class="block text-slate-600 hover:text-jfBlue-600 font-medium py-1">文字姓名印章</a>
+            <a href="#other-groups" class="block text-center py-2 bg-jfBlue-600 text-white rounded-lg font-semibold shadow-md">團體作品展示</a>
+        </div>
+    </nav>
+
+    <!-- 【優化首頁頭部區】極速輕量化大 Banner 與高清大圖引導入口 -->
+    <header id="hero-banner" class="relative bg-gradient-to-br from-jfBlue-800 via-slate-900 to-jfBlue-700 py-16 md:py-24 overflow-hidden border-b-8 border-jfBlue-600">
+        <!-- 背景高科技光環裝飾 -->
+        <div class="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-jfOrange/20 blur-3xl -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-10 w-80 h-80 rounded-full bg-jfBlue-600/30 blur-2xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- 左側：標題文字資訊 -->
+                <div class="lg:col-span-7 text-left text-white space-y-6">
+                    <span class="inline-block bg-jfOrange text-white text-xs md:text-sm font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg shadow-jfOrange/30">
+                        新竹縣竹北市・科技教育與藝術深度交融成果
+                    </span>
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight tracking-wide">
+                        從手繪到 AI 印章的<br>
+                        <span class="text-amber-400">蛻變之旅</span>
+                    </h1>
+                    <p class="text-base md:text-xl text-slate-300 font-medium max-w-2xl">
+                        將孩子天馬行空的原創手稿，結合先進 AI 圖像轉譯與二值化排版技術，經由光敏印章製版成型，完成一場驚喜與成就感兼具的 Maker 創客實踐。
+                    </p>
+                    <div class="h-1 w-20 bg-jfOrange rounded-full"></div>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <!-- 點擊此按鈕在新分頁開啟大圖 -->
+                        <button onclick="window.open('./ai.png', '_blank')" class="px-6 py-3.5 bg-jfOrange hover:bg-jfOrange/95 text-white rounded-2xl text-base font-extrabold transition-all flex items-center gap-2 shadow-xl shadow-jfOrange/30 focus-glow">
+                            <i class="fa-solid fa-up-right-and-down-left-from-center"></i> 展開超高清成果大圖
+                        </button>
+                        <a href="#gallery" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-2xl text-base font-bold border border-white/20 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-images"></i> 瀏覽成果畫廊
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 右側：引導點擊檢視的「微型縮圖卡片」 (點選直接新分頁開啟 ai.png) -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/5 backdrop-blur-md p-4 rounded-3xl border border-white/10 shadow-2xl relative group cursor-pointer" onclick="window.open('./ai.png', '_blank')">
+                        <!-- 懸浮提示標籤 -->
+                        <div class="absolute -top-3 -right-3 z-20 bg-red-600 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg animate-bounce flex items-center gap-1">
+                            <i class="fa-solid fa-magnifying-glass-plus"></i> 點擊新分頁開啟大圖
+                        </div>
+                        
+                        <!-- 圖片容器 (已更新指向安全英數檔名 ai.png) -->
+                        <div class="rounded-2xl overflow-hidden h-64 md:h-80 bg-slate-950 relative border-2 border-white/10">
+                            <img src="ai.png" 
+                                 alt="嘉豐國小完整海報縮圖導引" 
+                                 class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                 onerror="this.src='https://i.postimg.cc/Z54sGRHz/jia-feng-guo-xiao-cong-shou-hui-dao-AI-yin-zhang-de-tui-bian-zhi-lu.png';">
+                            <!-- 暗色覆蓋與圖示 -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-6">
+                                <span class="text-xs font-bold text-amber-300 tracking-wider">JIA-FENG PRIMARY SCHOOL MAKER POSTER</span>
+                                <p class="text-white font-black text-sm mt-1">嘉豐國小完整成果展示大圖海報</p>
+                                <span class="text-[11px] text-slate-400 mt-1">包含完整 41 組學生成果對照</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 課程理念 (About) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">EDUCATIONAL VISION</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">用心教育・點亮未來</h2>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-jfOrange pl-4">這不只是一顆印章，更是一場設計思考的實踐</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        在嘉豐國小的創客課堂中，我們深信「每位孩子都是天生的藝術家與造物者」。我們引導孩子從生活經驗與關懷出發，拿起畫筆親手描繪具備溫度的手繪線條。
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        隨後，我們導入當前最熱門的 AI 生成科技輔助，讓孩子學會與 AI 協作，將童趣的手繪轉譯為高解析的向量製版圖稿。最後，親手操作精密光敏機具壓製出成品，完整體驗從概念、微調、產出到應用的科技創作歷程。
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <span class="px-4 py-2 bg-jfBlue-50 text-jfBlue-600 rounded-lg text-sm font-bold"><i class="fa-solid fa-brain mr-2"></i>設計思考</span>
+                        <span class="px-4 py-2 bg-jfBlue-50 text-jfBlue-600 rounded-lg text-sm font-bold"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i>AI 協同創作</span>
+                        <span class="px-4 py-2 bg-jfBlue-50 text-jfBlue-600 rounded-lg text-sm font-bold"><i class="fa-solid fa-cubes mr-2"></i>實體Maker製造</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="bg-jfCream/40 p-6 rounded-2xl border border-jfCream text-center">
+                            <span class="text-4xl block mb-2">✍️</span>
+                            <h4 class="font-bold text-lg text-slate-900">100% 原創手繪</h4>
+                            <p class="text-xs text-slate-500 mt-1">保存孩子最純真的視角</p>
+                        </div>
+                        <div class="bg-jfBlue-50 p-6 rounded-2xl border border-jfBlue-100 text-center">
+                            <span class="text-4xl block mb-2">🤖</span>
+                            <h4 class="font-bold text-lg text-slate-900">AI 輔助優化</h4>
+                            <p class="text-xs text-slate-500 mt-1">智慧去除雜訊與對比調整</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100 text-center">
+                            <span class="text-4xl block mb-2">⚡</span>
+                            <h4 class="font-bold text-lg text-slate-900">光敏瞬曝製版</h4>
+                            <p class="text-xs text-slate-500 mt-1">極高細節重現的微米製程</p>
+                        </div>
+                        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 text-center">
+                            <span class="text-4xl block mb-2">🎁</span>
+                            <h4 class="font-bold text-lg text-slate-900">生活美學載體</h4>
+                            <p class="text-xs text-slate-500 mt-1">成為信件與筆記的靈魂印記</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課堂蛻變紀實與故事線 -->
+    <section id="core-story" class="py-20 bg-slate-50 border-y border-slate-150">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">REAL MAKER CLASSROOM</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900"><i class="fa-solid fa-stamp text-jfBlue-600 mr-2"></i>課堂手作與成果特寫</h2>
+                <p class="text-slate-500 mt-2">將創意與科技完美對焦，記錄兩大無價的歷史瞬間</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 兩大核心場景深度對角卡片 -->
+            <div class="space-y-16">
+                
+                <!-- 焦點場景 A：AI與數位協作的誕生現場 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+                    <!-- 左：照片大特寫 -->
+                    <div class="lg:col-span-7 relative overflow-hidden group min-h-[300px] lg:min-h-[450px]">
+                        <img src="https://i.postimg.cc/65d1bRdF/S-656973827-0.jpg" 
+                             alt="教師與學生在課堂上討論手稿並進行數位化排版" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 select-none">
+                        <div class="absolute top-4 left-4 bg-jfBlue-600/90 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-2 text-amber-300"></i>第一手實作鏡頭
+                        </div>
+                    </div>
+                    <!-- 右：深度故事 -->
+                    <div class="lg:col-span-5 p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-white to-jfBlue-50/20">
+                        <span class="text-xs font-extrabold text-jfBlue-600 tracking-wider uppercase mb-2">STEP 02 ｜ 智慧轉譯輔導</span>
+                        <h3 class="text-2xl md:text-3xl font-black text-slate-900 leading-tight mb-4">
+                            科技賦能：手繪墨線的數位昇華
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            在這個極具意義的瞬間中，老師在平板電腦前一步步細心指導，帶著孩子解析其親手描繪的手繪原稿。
+                            我們不只導入 ChatGPT 與先進的擴慢模型，更教會孩子學會調整**二值化對比**與**向量輪廓**，理解「光敏製版機」瞬曝所需的底片印模原理。
+                        </p>
+                        <div class="border-t border-slate-100 pt-6">
+                            <div class="flex items-center space-x-3 text-sm text-slate-500">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-jfBlue-50 text-jfBlue-600"><i class="fa-solid fa-check"></i></span>
+                                <span>引導操作平板工具，掌握 AI 圖模調整</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slate-500 mt-2">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-jfBlue-50 text-jfBlue-600"><i class="fa-solid fa-check"></i></span>
+                                <span>理解黑白對比對光敏成型的重要性</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 焦點場景 B：令人動容的成果喜悅瞬間 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+                    <!-- 左：深度故事 -->
+                    <div class="lg:col-span-5 p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-white to-orange-50/10 order-2 lg:order-1">
+                        <span class="text-xs font-extrabold text-jfOrange tracking-wider uppercase mb-2">STEP 03 ｜ 光敏壓印見證</span>
+                        <h3 class="text-2xl md:text-3xl font-black text-slate-900 leading-tight mb-4">
+                            歡樂綻放：親自蓋下專屬圖騰的驚喜
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            當高能量的紫外光瞬間閃爍曝光，特製的光敏墊吸飽了飽滿的朱紅印油，孩子們迫不及待地在大卡片與作品集上用力蓋下！
+                            這張洋溢著童真笑容的照片，完美見證了**「創意實體化」**帶來的巨大成就感。這一刻，AI 與科技不再冰冷，而是成為溫慢、可觸摸的實體生命力。
+                        </p>
+                        <div class="border-t border-slate-100 pt-6">
+                            <div class="flex items-center space-x-3 text-sm text-slate-500">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-orange-50 text-jfOrange"><i class="fa-solid fa-heart"></i></span>
+                                <span>用實體作品建立一生難忘的設計成就感</span>
+                            </div>
+                            <div class="flex items-center space-x-3 text-sm text-slate-500 mt-2">
+                                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-orange-50 text-jfOrange"><i class="fa-solid fa-heart"></i></span>
+                                <span>體驗「做中學、學中覺」的創客精神核心</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右：照片大特寫 -->
+                    <div class="lg:col-span-7 relative overflow-hidden group min-h-[300px] lg:min-h-[450px] order-1 lg:order-2">
+                        <img src="https://i.postimg.cc/fTxgqXxF/S-656973828-0.jpg" 
+                             alt="嘉豐國小學童開心地互相展示在卡片上蓋好的印章成果" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 select-none">
+                        <div class="absolute top-4 right-4 bg-jfOrange/95 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg">
+                            <i class="fa-solid fa-face-smile mr-2 text-white"></i>喜悅與驕傲綻放
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 校園美景 (Campus Features) -->
+    <section id="campus" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">OUR CAMPUS</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">校園美學風采</h2>
+                <p class="text-slate-500 mt-2">新竹縣竹北市最美現代化校園，融合在地文化與智慧創客空間</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 客家圓樓特色建築 1 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://i.postimg.cc/3w6sQhWm/ying-mu-xie-qu-hua-mian-2026-05-21-214829.png" alt="嘉豐國小客家圓樓外觀" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-jfBlue-600 text-white text-xs font-bold px-3 py-1 rounded-full">文化融合</span>
+                    </div>
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">經典客家圓樓意象</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            校舍主體結構特別揉合了新竹在地傳統客家圓樓的多維圓弧線條與環抱美學，打造一處兼具傳承與現代美感的新地標。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 客家圓樓俯瞰/內景 2 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://i.postimg.cc/2yvmK6wd/S-346710026-0.jpg" alt="嘉豐國小客家圓樓天井與採光" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-jfBlue-600 text-white text-xs font-bold px-3 py-1 rounded-full">自然天井</span>
+                    </div>
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">光影流轉的天井空間</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            圓型挑高的核心天井設計，完美地將自然日光引入中庭與穿廊，孩子能隨時抬頭仰望藍天，伴隨光影微風快樂成長。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 地下停車場 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-lg border border-slate-100 group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://i.postimg.cc/Rhf9DFRf/IMG-9840.png" alt="嘉豐國小地下停車場" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full">智慧校園</span>
+                    </div>
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">安全便捷的現代地下空間</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            高規格打造的安全明亮地下停車場，提供家長接送、教職員通勤最安全、遮風避雨的貼心停放動線與智慧指引系統。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 創客生成：印章四大風格指南專區 (圖 2 已 100% 完整無損展現) -->
+    <section id="style-guide" class="py-20 bg-slate-50 border-t border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">AI CREATION STYLE GUIDE</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900"><i class="fa-solid fa-palette text-jfBlue-600 mr-2"></i>AI 創客生成：印章四大風格指南</h2>
+                <p class="text-slate-500 mt-2">提供師生、家長最實用的風格特徵對照，協助您生成獨一無二的印章作品！</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- 左側：四大風格詳細特徵介紹卡片 -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <!-- 風格一 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="text-3xl bg-amber-50 p-3 rounded-xl text-amber-500"><i class="fa-solid fa-circle-half-stroke"></i></span>
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                                陰刻（白文）風格 <span class="text-xs text-amber-600 font-bold px-2 py-0.5 bg-amber-50 rounded-full">大氣渾厚</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+                                <strong>設計秘訣：</strong> 文字與核心造型呈現「凹陷白色」，背景呈大面積黑色（凸起著色）。<br>
+                                <strong>效果特點：</strong> 蓋印後線條厚實、視覺效果非常沉穩，能展現出極強的畫面張力與復古韻味。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 風格二 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="text-3xl bg-jfBlue-50 p-3 rounded-xl text-jfBlue-600"><i class="fa-solid fa-circle-notch"></i></span>
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                                陽刻（朱文）風格 <span class="text-xs text-jfBlue-600 font-bold px-2 py-0.5 bg-jfBlue-50 rounded-full">清新雋永</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+                                <strong>設計秘訣：</strong> 圖案輪廓與主體線條保留黑色（凸起著色），背景大部分為空白。<br>
+                                <strong>效果特點：</strong> 蓋印後僅著墨於精細的線條輪廓，整體畫面乾淨、清新，能夠高還原複雜的插畫細節。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 風格三 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="text-3xl bg-rose-50 p-3 rounded-xl text-rose-500"><i class="fa-solid fa-circle-dot"></i></span>
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                                雙線同心圓風格 <span class="text-xs text-rose-600 font-bold px-2 py-0.5 bg-rose-50 rounded-full">經典莊嚴</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+                                <strong>設計秘訣：</strong> 在核心圖示外側圍繞一圈精密的外粗線，內襯一圈細圓線或點綴虛線。<br>
+                                <strong>效果特點：</strong> 展現最經典的商標或標章格式，能在視覺上賦予作品強烈的儀式感與古典紀念價值。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 風格四 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 hover:shadow-md transition-shadow">
+                        <span class="text-3xl bg-emerald-50 p-3 rounded-xl text-emerald-500"><i class="fa-solid fa-feather-pointed"></i></span>
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 flex items-center gap-2">
+                                手繪素描排線風格 <span class="text-xs text-emerald-600 font-bold px-2 py-0.5 bg-emerald-50 rounded-full">人性溫度</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm mt-1.5 leading-relaxed">
+                                <strong>設計秘訣：</strong> 保留手繪原稿中不規則、斷續、粗細有致以及鉛筆排線陰影質感。<br>
+                                <strong>效果特點：</strong> 打破傳統印章整齊死板的僵硬線條，賦予蓋印作品獨特的創作者情感與藝術生命力。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側：風格生成指引圖特寫 (100% 完整比例無損呈現) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="bg-white p-5 rounded-3xl shadow-xl border border-slate-150 max-w-sm w-full relative">
+                        <div class="absolute -top-3 -right-3 z-10 bg-jfOrange text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg">
+                            STYLE GUIDE
+                        </div>
+                        <div class="rounded-2xl bg-white border border-slate-100 p-2 shadow-inner">
+                            <!-- 顯示風格對照參考圖，使用 h-auto 與 object-contain 確保 100% 完整無損展示 -->
+                            <img src="https://i.postimg.cc/ZRFBYrvr/Chat-GPT-Image-2025nian5yue8ri-xia-wu09-49-24.jpg" 
+                                 alt="嘉豐國小四大印章風格指南" 
+                                 class="w-full h-auto object-contain rounded-xl shadow-sm hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+                                 onclick="window.open('https://i.postimg.cc/ZRFBYrvr/Chat-GPT-Image-2025nian5yue8ri-xia-wu09-49-24.jpg', '_blank')">
+                        </div>
+                        <div class="mt-4 text-center">
+                            <h4 class="font-black text-slate-900 text-base">嘉豐創客風格指引圖解</h4>
+                            <p class="text-xs text-slate-500 mt-1">可點選圖片或在新分頁另存下載，作為 Stable Diffusion Prompts 指令參考</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成果展示畫廊 (Core Gallery Section，帶入蓋印區按鈕已全部刪除) -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">CREATIVE EXHIBITION</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900">學生手繪與 AI 轉化對照展</h2>
+                <p class="text-slate-500 mt-2">左側呈現充滿個性的孩子原始草稿，右側則是與 AI 共同精研後的實體印章圖模</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 控制列：搜尋與預覽模式切換 -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100 mb-10">
+                <!-- 搜尋框 -->
+                <div class="relative w-full md:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="輸入作品編號 (1 - 41)..." 
+                           class="w-full pl-11 pr-4 py-2 bg-white rounded-xl text-sm border border-slate-200 focus:outline-none focus:ring-2 focus:ring-jfBlue-600 focus:border-transparent transition-all">
+                </div>
+                
+                <!-- 雙軌模式切換提示 -->
+                <div class="flex items-center space-x-3">
+                    <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-circle-info text-jfBlue-600 mr-1"></i>如果本地未配置 images 檔案，可切換：</span>
+                    <div class="bg-slate-200 p-1 rounded-lg flex space-x-1">
+                        <button onclick="togglePreviewMode('local')" id="mode-local-btn" class="px-3 py-1 text-xs font-bold rounded-md bg-white text-jfBlue-600 shadow-sm transition-all">
+                            本機模式
+                        </button>
+                        <button onclick="togglePreviewMode('demo')" id="mode-demo-btn" class="px-3 py-1 text-xs font-bold rounded-md text-slate-600 hover:text-jfBlue-600 transition-all">
+                            線上範本
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成果卡片網格容器 -->
+            <div id="gallery-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <!-- 內容由 JS 自動渲染 -->
+            </div>
+            
+            <!-- 沒有搜尋結果時顯示 -->
+            <div id="no-results" class="hidden text-center py-20">
+                <i class="fa-regular fa-folder-open text-5xl text-slate-300 mb-4 block"></i>
+                <p class="text-slate-500 font-bold">找不到對應編號的作品，請嘗試其他關鍵字</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 【新增】多色套色印章展示區 -->
+    <section id="layered-stamps" class="py-20 bg-slate-50 border-t border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">MULTI-COLOR LAYERED STAMPS</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900"><i class="fa-solid fa-layer-group text-jfBlue-600 mr-2"></i>多色套色印章展示</h2>
+                <p class="text-slate-500 mt-2">突破單色界限，透過多版套色分層技術，疊加出精美絕倫的繽紛印記</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- 左側：套色原理說明圖 -->
+                <div class="lg:col-span-4 bg-white p-5 rounded-3xl shadow-md border border-slate-200">
+                    <span class="inline-block bg-red-100 text-red-700 text-xs font-black px-3 py-1 rounded-full mb-3">分色套印原理</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">疊色對位精密製程</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        多色套印是光敏創客的高階實踐。將圖稿在 Illustrator 中依色彩拆分為不同製版，並在蓋印時利用同心軌道進行高精度對位，親手壓製出驚豔的飽和色彩。
+                    </p>
+                    <div class="rounded-xl overflow-hidden border border-slate-100 shadow-inner">
+                        <img src="https://i.postimg.cc/c1YJ77DY/tao-se-shuo-ming-tu.jpg" alt="套色說明圖" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+
+                <!-- 右側：5款精彩套色成果實體 -->
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- 套色 1 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+                        <div class="aspect-square bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center">
+                            <img src="https://i.postimg.cc/prNzGWbx/e0UJFu2OHsecjv1.png" alt="套色作品 1" class="max-h-full max-w-full object-contain rounded-full shadow-inner">
+                        </div>
+                        <span class="text-xs font-black text-slate-800 mt-3 block">套色印章成果 01</span>
+                    </div>
+
+                    <!-- 套色 2 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+                        <div class="aspect-square bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center">
+                            <img src="https://i.postimg.cc/Gt0G7Lwt/e2081e4a-1f57-4e11-b8e0-c07ff056658f.png" alt="套色作品 2" class="max-h-full max-w-full object-contain rounded-full shadow-inner">
+                        </div>
+                        <span class="text-xs font-black text-slate-800 mt-3 block">套色印章成果 02</span>
+                    </div>
+
+                    <!-- 套色 3 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+                        <div class="aspect-square bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center">
+                            <img src="https://i.postimg.cc/sXG54B8v/fe34890a-1bf0-4fd8-a50b-3dba0ef576b5.png" alt="套色作品 3" class="max-h-full max-w-full object-contain rounded-full shadow-inner">
+                        </div>
+                        <span class="text-xs font-black text-slate-800 mt-3 block">套色印章成果 03</span>
+                    </div>
+
+                    <!-- 套色 4 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+                        <div class="aspect-square bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center">
+                            <img src="https://i.postimg.cc/yd30yJ5D/ddb9da33-75b5-4193-8833-7c7bbf99f4ff.png" alt="套色作品 4" class="max-h-full max-w-full object-contain rounded-full shadow-inner">
+                        </div>
+                        <span class="text-xs font-black text-slate-800 mt-3 block">套色印章成果 04</span>
+                    </div>
+
+                    <!-- 套色 5 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col justify-between">
+                        <div class="aspect-square bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center">
+                            <img src="https://i.postimg.cc/PxHd29Vv/ying-mu-xie-qu-hua-mian-2026-05-22-105451.png" alt="套色作品 5" class="max-h-full max-w-full object-contain rounded-full shadow-inner">
+                        </div>
+                        <span class="text-xs font-black text-slate-800 mt-3 block">套色印章成果 05</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 【新增】文字印章 / 姓名印章展示區 -->
+    <section id="text-stamps" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">TEXT & NAME STAMPS</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900"><i class="fa-solid fa-signature text-jfBlue-600 mr-2"></i>師生文字姓名印章成果</h2>
+                <p class="text-slate-500 mt-2">將經典書法字形與個性手寫融為一體，設計出極具文人儒雅風範的姓名藏書章</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 13款精美姓名印章網格 -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6">
+                <!-- 文字 1 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/sg8F0qXn/1752826852f5404751e08084b994f937.jpg" alt="文字印章 01" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 01</span>
+                </div>
+                <!-- 文字 2 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/FH15pN98/180e74db23575d89bb8a8559b91971d4.jpg" alt="文字印章 02" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 02</span>
+                </div>
+                <!-- 文字 3 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/VkTyHpvP/1bfcfadd68b39577d7ecd920a860ecfa.jpg" alt="文字印章 03" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 03</span>
+                </div>
+                <!-- 文字 4 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/kgD3sqn0/518076ac47d4abe8a3814d210da5a81f.jpg" alt="文字印章 04" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 04</span>
+                </div>
+                <!-- 文字 5 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/wjPKbZvf/5289646980db015f276f4f99933f4b97.jpg" alt="文字印章 05" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 05</span>
+                </div>
+                <!-- 文字 6 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/MpX25qW4/600dc0186cdb2dec111dfab8a9159f91.jpg" alt="文字印章 06" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 06</span>
+                </div>
+                <!-- 文字 7 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/mgqx6Jks/6a717b30503e5343226bee786de44f49.jpg" alt="文字印章 07" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 07</span>
+                </div>
+                <!-- 文字 8 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/QdVGmhXy/71704f213427ab874a9addabed3b4aa6.jpg" alt="文字印章 08" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 08</span>
+                </div>
+                <!-- 文字 9 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/YCVcyZ9d/7783527e201eaac3ddc470daf10f06fc.jpg" alt="文字印章 09" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 09</span>
+                </div>
+                <!-- 文字 10 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/YCjKRMpD/81ebfa1e23ac2ca8582edeefdc9016be.jpg" alt="文字印章 10" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 10</span>
+                </div>
+                <!-- 文字 11 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/HkKGPRnm/8d437541377b397b5fad020658efcf4f.jpg" alt="文字印章 11" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 11</span>
+                </div>
+                <!-- 文字 12 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/Cxty6X1r/a0c089f1f001fa284664493d8b4c306a.jpg" alt="文字印章 12" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 12</span>
+                </div>
+                <!-- 文字 13 -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 hover:shadow-md transition-shadow text-center">
+                    <img src="https://i.postimg.cc/DwDVYHZY/a9acb99c7b75899815440990a248173b.jpg" alt="文字印章 13" class="w-20 h-20 mx-auto object-contain rounded-full border border-slate-200 bg-white p-1">
+                    <span class="text-xs font-bold text-slate-500 mt-3 block">姓名印章 13</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 【新增與重組】其他團體作品展示專區 (位在網頁最下方，匯聚 16 款精選創客作品) -->
+    <section id="other-groups" class="py-20 bg-slate-50 border-t border-slate-150">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-jfOrange font-extrabold tracking-widest text-sm uppercase block mb-2">OTHER GROUP WORKS</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900"><i class="fa-solid fa-circle-nodes text-jfBlue-600 mr-2"></i>其他團體作品展示</h2>
+                <p class="text-slate-500 mt-2">多元風格與集體創意的淬煉結晶，展現豐富的圖案演變</p>
+                <div class="w-12 h-1 bg-jfBlue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 16 款精美印章實體網格 (11款原精選 + 5款新增團體繪本插畫) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
+                
+                <!-- 新增：團體作品 12 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/mD55pF8t/Chat-GPT-Image-2025nian6yue23ri-xia-wu11-59-53.png" alt="團體作品 12" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 12</span>
+                </div>
+
+                <!-- 新增：團體作品 13 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/SK5PDMZm/a2a7641a26b367608c6ef28ce9b7e983-(1).png" alt="團體作品 13" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 13</span>
+                </div>
+
+                <!-- 新增：團體作品 14 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/brR3cDRg/a2a7641a26b367608c6ef28ce9b7e983-(3).png" alt="團體作品 14" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 14</span>
+                </div>
+
+                <!-- 新增：團體作品 15 (貓咪填色) -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/0NxjrzYL/mao-mi-tian-se4gong-fen.jpg" alt="團體作品 15" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 15</span>
+                </div>
+
+                <!-- 新增：團體作品 16 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/XXS3hPQS/S-572268571.jpg" alt="團體作品 16" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 16</span>
+                </div>
+
+                <!-- 原始：精選印章 01 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/T1L9H743/Chat-GPT-Image-2025nian5yue5ri-xia-wu10-49-11.png" alt="精選印章 01" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 01</span>
+                </div>
+
+                <!-- 原始：精選印章 02 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/13jDbcDz/S-608821251.jpg" alt="精選印章 02" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 02</span>
+                </div>
+
+                <!-- 原始：精選印章 03 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/kGsbsxnR/S-601235596.jpg" alt="精選印章 03" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 03</span>
+                </div>
+
+                <!-- 原始：精選印章 04 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/y8kZhg2Y/Chat-GPT-Image-2025nian5yue5ri-xia-wu10-52-50.png" alt="精選印章 04" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 04</span>
+                </div>
+
+                <!-- 原始：精選印章 05 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/CM8Y8Fvg/198765.jpg" alt="精選印章 05" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 05</span>
+                </div>
+
+                <!-- 原始：精選印章 06 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/XqbPd0vh/S-26263632.jpg" alt="精選印章 06" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 06</span>
+                </div>
+
+                <!-- 原始：精選印章 07 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/Dw8xWzg4/S-68624387.jpg" alt="精選印章 07" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 07</span>
+                </div>
+
+                <!-- 原始：精選印章 08 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/JhjcJHB7/S-82894994.jpg" alt="精選印章 08" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 08</span>
+                </div>
+
+                <!-- 原始：精選印章 09 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/zGgnZHpY/S-602030086.jpg" alt="精選印章 09" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 09</span>
+                </div>
+
+                <!-- 原始：精選印章 10 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/TPc5fVDZ/1.jpg" alt="精選印章 10" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 10</span>
+                </div>
+
+                <!-- 原始：精選印章 11 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center">
+                    <div class="w-24 h-24 flex items-center justify-center p-2 rounded-xl bg-slate-50/50">
+                        <img src="https://i.postimg.cc/65G7yJZr/2.jpg" alt="精選印章 11" class="max-h-full max-w-full object-contain rounded-full">
+                    </div>
+                    <span class="text-xs font-black text-slate-700 mt-3 block">精選印章 11</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 (Footer) -->
+    <footer class="bg-jfBlue-700 text-white pt-16 pb-8 border-t-4 border-jfOrange text-left">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left border-b border-white/10 pb-12 mb-8">
+                <div class="flex flex-col items-center md:items-start space-y-4">
+                    <div class="bg-white p-2 rounded-2xl inline-block shadow-lg">
+                        <img src="https://i.postimg.cc/RVKVPPs8/IMG-9908.jpg" alt="嘉豐國小" class="h-20 w-20 object-cover rounded-xl">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black tracking-widest text-white">新竹縣嘉豐國民小學</h3>
+                        <p class="text-blue-200 text-xs mt-1">用心教育・點亮未來｜竹北科技示範學校</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <h4 class="text-sm font-extrabold text-amber-300 uppercase tracking-widest border-b border-white/5 pb-2">聯絡資訊</h4>
+                    <p class="text-sm text-blue-100"><i class="fa-solid fa-map-location-dot mr-2"></i>新竹縣竹北市東興路一段568號</p>
+                    <p class="text-sm text-blue-100"><i class="fa-solid fa-phone mr-2"></i>(03) 668-2026</p>
+                </div>
+
+                <div class="space-y-3 text-center md:text-right">
+                    <h4 class="text-sm font-extrabold text-amber-300 uppercase tracking-widest border-b border-white/5 pb-2 md:text-right">創客課程技術棧</h4>
+                    <p class="text-xs text-blue-100">AI 微調 + ChatGPT / 影像二值化過濾</p>
+                    <p class="text-xs text-blue-100">光敏瞬曝製章機 (Photosensitive Stamp Maker)</p>
+                    <p class="text-xs text-blue-100">向量圖SVG、黑白灰階二值化底片生成</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-blue-200">
+                <p>© 2026 新竹縣嘉豐國民小學 師生創客成果. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">網頁設計：嘉豐國小創客團隊 ✕ AI 協作</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 燈箱對照彈窗 (Lightbox Modal) -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-jfOrange text-3xl focus:outline-none transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="max-w-5xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <div class="px-6 py-4 border-b border-white/10 flex justify-between items-center text-left">
+                <h4 class="text-lg font-bold text-white"><i class="fa-solid fa-circle-half-stroke text-jfOrange mr-2"></i>設計演變超高清對焦</h4>
+                <span id="lightbox-id-badge" class="bg-jfOrange text-white text-xs font-bold px-3 py-1 rounded-full">作品編號 #01</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 items-center">
+                <!-- 左側手繪稿 -->
+                <div class="text-center space-y-3">
+                    <div class="bg-white p-4 rounded-2xl h-72 md:h-96 flex items-center justify-center">
+                        <img id="lightbox-left-img" src="" alt="手繪原稿" class="max-h-full max-w-full object-contain">
+                    </div>
+                    <span class="inline-block bg-white/10 text-white text-sm font-bold px-4 py-1.5 rounded-full">
+                        ✍️ 原始創意手繪稿
+                    </span>
+                </div>
+
+                <!-- 中間動態箭頭 -->
+                <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-jfOrange text-white items-center justify-center text-xl shadow-lg z-10 pointer-events-none">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+
+                <!-- 右側印章稿 -->
+                <div class="text-center space-y-3">
+                    <div class="bg-white p-4 rounded-2xl h-72 md:h-96 flex items-center justify-center relative">
+                        <div class="absolute inset-6 rounded-full border-4 border-dashed border-red-500/20 animate-spin-slow pointer-events-none"></div>
+                        <img id="lightbox-right-img" src="" alt="AI印章稿" class="max-h-full max-w-full object-contain rounded-full shadow-lg">
+                    </div>
+                    <span class="inline-block bg-red-600 text-white text-sm font-bold px-4 py-1.5 rounded-full">
+                        🎯 AI 精研向量印章稿
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 行動版選單開關
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // ================= 學生作品展示畫廊功能 (雙軌預覽與燈箱) =================
+        const galleryContainer = document.getElementById('gallery-container');
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+        
+        let currentMode = 'local'; 
+        const totalImages = 41; 
+
+        function renderGallery(searchTerm = '') {
+            galleryContainer.innerHTML = '';
+            let displayedCount = 0;
+
+            for (let i = 1; i <= totalImages; i++) {
+                if (searchTerm && !String(i).includes(searchTerm)) {
+                    continue;
+                }
+
+                displayedCount++;
+
+                let handDrawnUrl, aiStampUrl;
+
+                if (currentMode === 'local') {
+                    handDrawnUrl = `images/ai${i}.jpg`;
+                    aiStampUrl = `images/ai${i}.png`;
+                } else {
+                    handDrawnUrl = `https://picsum.photos/seed/draft${i}/300/300`;
+                    aiStampUrl = `https://picsum.photos/seed/stamp${i}/300/300`;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'comparison-card-wrapper bg-slate-50 border border-slate-150 p-4 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between';
+                card.setAttribute('data-id', i);
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center mb-3 text-left">
+                        <span class="bg-jfBlue-50 text-jfBlue-600 text-xs font-extrabold px-3 py-1 rounded-full">作品編號 #${String(i).padStart(2, '0')}</span>
+                        <button onclick="openLightbox(${i}, '${handDrawnUrl}', '${aiStampUrl}')" class="text-xs text-slate-400 hover:text-jfOrange font-bold transition-colors">
+                            <i class="fa-solid fa-up-right-and-down-left-from-center mr-1"></i>放大看細節
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-2 bg-white p-3 rounded-xl border border-slate-100">
+                        <!-- 左：手繪原稿 -->
+                        <div class="flex-1 text-center">
+                            <div class="bg-slate-50 rounded-lg p-2 aspect-square flex items-center justify-center overflow-hidden border border-slate-100">
+                                <img src="${handDrawnUrl}" alt="編號 ${i} 手繪" class="max-h-24 max-w-full object-contain hover:scale-110 transition-transform duration-300"
+                                     onerror="handleImageError(this, ${i}, 'jpg')">
+                            </div>
+                            <span class="text-[11px] font-bold text-slate-400 mt-2 block">手繪原創稿</span>
+                        </div>
+
+                        <!-- 轉換指向 -->
+                        <div class="text-jfOrange font-black text-lg animate-pulse">➔</div>
+
+                        <!-- 右：AI設計稿 -->
+                        <div class="flex-1 text-center">
+                            <div class="bg-slate-50 rounded-lg p-2 aspect-square flex items-center justify-center overflow-hidden border border-slate-100 relative">
+                                <div class="absolute inset-1 rounded-full border border-dashed border-red-500/10 pointer-events-none"></div>
+                                <img src="${aiStampUrl}" alt="編號 ${i} AI" class="max-h-24 max-w-full object-contain rounded-full shadow-sm hover:scale-110 transition-transform duration-300"
+                                     onerror="handleImageError(this, ${i}, 'png')">
+                            </div>
+                            <span class="text-[11px] font-bold text-red-500 mt-2 block">AI 向量印模</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 pt-3 border-t border-slate-100 flex justify-between items-center text-left">
+                        <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-code-compare mr-1"></i>對位優化已完成</span>
+                    </div>
+                `;
+
+                galleryContainer.appendChild(card);
+            }
+
+            if (displayedCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function handleImageError(imgElement, id, ext) {
+            imgElement.onerror = null;
+            if (ext === 'jpg') {
+                imgElement.src = `https://placehold.co/150x150/f1f5f9/005bac?text=Draft+${id}`;
+            } else {
+                imgElement.src = `https://placehold.co/150x150/fef2f2/991b1b?text=Stamp+${id}`;
+            }
+        }
+
+        function togglePreviewMode(mode) {
+            currentMode = mode;
+            const localBtn = document.getElementById('mode-local-btn');
+            const demoBtn = document.getElementById('mode-demo-btn');
+
+            if (mode === 'local') {
+                localBtn.className = 'px-3 py-1 text-xs font-bold rounded-md bg-white text-jfBlue-600 shadow-sm transition-all';
+                demoBtn.className = 'px-3 py-1 text-xs font-bold rounded-md text-slate-600 hover:text-jfBlue-600 transition-all';
+            } else {
+                demoBtn.className = 'px-3 py-1 text-xs font-bold rounded-md bg-white text-jfBlue-600 shadow-sm transition-all';
+                localBtn.className = 'px-3 py-1 text-xs font-bold rounded-md text-slate-600 hover:text-jfBlue-600 transition-all';
+            }
+            renderGallery(searchInput.value.trim());
+        }
+
+        searchInput.addEventListener('input', function() {
+            renderGallery(this.value.trim());
+        });
+
+        // ================= 燈箱對照（Lightbox）功能 =================
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxLeftImg = document.getElementById('lightbox-left-img');
+        const lightboxRightImg = document.getElementById('lightbox-right-img');
+        const lightboxIdBadge = document.getElementById('lightbox-id-badge');
+
+        function openLightbox(id, leftImgUrl, rightImgUrl) {
+            lightboxIdBadge.innerText = `作品編號 #${String(id).padStart(2, '0')}`;
+            lightboxLeftImg.src = leftImgUrl;
+            lightboxRightImg.src = rightImgUrl;
+            
+            lightboxModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
+
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        renderGallery();
+    </script>
+</body>
+</html>
